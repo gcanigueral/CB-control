@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/01 Apps/CB Control/Web/**)",
+      "Read(//c/01 Apps/CB Control/**)",
+      "PowerShell(Head -30)",
+      "Skill(run)",
+      "Skill(run:*)",
+      "PowerShell(Start-Process \"c:\\\\01 Apps\\\\CB Control\\\\Web\\\\CBControl\\\\preview.html\")",
+      "Bash(start \"\" \"c:\\\\01 Apps\\\\CB Control\\\\Web\\\\CBControl\\\\preview.html\")",
+      "Read(//c/Users/hp-I7/.claude/projects/c--01-Apps-CB-Control-Web-CBControl/**)",
+      "Bash(python3 -c ' *)",
+      "PowerShell(Start-Process \\(Resolve-Path 'preview.html'\\).Path)",
+      "Bash(python3 -)",
+      "WebSearch",
+      "WebFetch(domain:unsplash.com)",
+      "Bash(cd \"/c/01 Apps/CB Control/Web/CBControl\" && grep -n \"sectorsData\" preview.html | head -3)",
+      "Read(//c/c/01 Apps/CB Control/Web/CBControl/**)"
+    ]
+  }
+}

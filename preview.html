@@ -782,7 +782,39 @@ var html='<div>'
 +'</div>';
 document.getElementById('serviceDetailContent').innerHTML=html;
 }
-function navigateTo(page,sectorKey){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));if(page==='sector-detail'&&sectorKey){renderSectorDetail(sectorKey);}if(page==='service-detail'&&sectorKey){renderServiceDetail(sectorKey);}const target=document.getElementById('page-'+page);if(target)target.classList.add('active');document.querySelectorAll('.nav-link').forEach(l=>l.classList.toggle('active',l.dataset.page===page));window.scrollTo({top:0,behavior:'smooth'});setTimeout(initReveal,80)}
+var _cbCurPage='home';var _cbTx=false;
+function navigateTo(page,sectorKey){
+  if(_cbTx)return;
+  if(page===_cbCurPage&&!sectorKey)return;
+  if(page==='sector-detail'&&sectorKey)renderSectorDetail(sectorKey);
+  if(page==='service-detail'&&sectorKey)renderServiceDetail(sectorKey);
+  var ord=['home','serveis','service-detail','sectors','sector-detail','projectes','empresa','contacte'];
+  var fi=ord.indexOf(_cbCurPage),ti=ord.indexOf(page);
+  var dir=(fi<0||ti<0||ti>=fi)?1:-1;
+  var outEl=document.getElementById('page-'+_cbCurPage);
+  var inEl=document.getElementById('page-'+page);
+  if(!inEl)return;
+  _cbTx=true;
+  var DUR=380;
+  var main=document.querySelector('main');
+  var h=main.offsetHeight;
+  main.style.cssText='position:relative;overflow:hidden;height:'+h+'px';
+  if(outEl)outEl.style.cssText='display:block;position:absolute;top:0;left:0;width:100%;z-index:1';
+  inEl.style.cssText='display:block;position:absolute;top:0;left:0;width:100%;z-index:2;transform:translateX('+(dir>0?'100%':'-100%')+')';
+  inEl.offsetHeight;
+  var t='transform '+DUR+'ms cubic-bezier(.4,0,.2,1)';
+  if(outEl){outEl.style.transition=t;outEl.style.transform='translateX('+(dir>0?'-100%':'100%')+')';}
+  inEl.style.transition=t;inEl.style.transform='translateX(0)';
+  setTimeout(function(){
+    document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active');p.removeAttribute('style');});
+    inEl.classList.add('active');
+    main.removeAttribute('style');
+    document.querySelectorAll('.nav-link').forEach(function(l){l.classList.toggle('active',l.dataset.page===page);});
+    window.scrollTo(0,0);
+    _cbCurPage=page;_cbTx=false;
+    setTimeout(initReveal,80);
+  },DUR);
+}
     
     // ── HERO PARTICLES ──────────────────────────────────────────────────
     function initHeroSlider(){
