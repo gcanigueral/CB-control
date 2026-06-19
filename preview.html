@@ -783,7 +783,63 @@ var html='<div>'
 document.getElementById('serviceDetailContent').innerHTML=html;
 }
 function navigateTo(page,sectorKey){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));if(page==='sector-detail'&&sectorKey){renderSectorDetail(sectorKey);}if(page==='service-detail'&&sectorKey){renderServiceDetail(sectorKey);}const target=document.getElementById('page-'+page);if(target)target.classList.add('active');document.querySelectorAll('.nav-link').forEach(l=>l.classList.toggle('active',l.dataset.page===page));window.scrollTo({top:0,behavior:'smooth'});setTimeout(initReveal,80)}
-    
+
+    // ── HORIZONTAL SWIPE NAVIGATION ─────────────────────────────────────
+    (function(){
+      var PAGES=['home','serveis','sectors','projectes','empresa','contacte'];
+      var _sliding=false,_cooldown=false,_accX=0,_wTimer=null;
+      function curIdx(){for(var i=0;i<PAGES.length;i++){var el=document.getElementById('page-'+PAGES[i]);if(el&&el.classList.contains('active'))return i;}return 0;}
+      function slideTo(to){
+        if(_sliding||_cooldown||to<0||to>=PAGES.length)return;
+        var from=curIdx();if(to===from)return;
+        var dir=to>from?1:-1;
+        var outEl=document.getElementById('page-'+PAGES[from]);
+        var inEl=document.getElementById('page-'+PAGES[to]);
+        if(!inEl)return;
+        _sliding=true;
+        var DUR=700,main=document.querySelector('main'),h=main.offsetHeight;
+        main.style.cssText='position:relative;overflow:hidden;height:'+h+'px';
+        if(outEl)outEl.style.cssText='display:block;position:absolute;top:0;left:0;width:100%;z-index:1';
+        inEl.style.cssText='display:block;position:absolute;top:0;left:0;width:100%;z-index:2;transform:translateX('+(dir>0?'100%':'-100%')+')';
+        inEl.offsetHeight;
+        var tr='transform '+DUR+'ms ease-in-out';
+        if(outEl){outEl.style.transition=tr;outEl.style.transform='translateX('+(dir>0?'-100%':'100%')+')';}
+        inEl.style.transition=tr;inEl.style.transform='translateX(0)';
+        setTimeout(function(){
+          document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active');p.removeAttribute('style');});
+          inEl.classList.add('active');
+          main.removeAttribute('style');
+          document.querySelectorAll('.nav-link').forEach(function(l){l.classList.toggle('active',l.dataset.page===PAGES[to]);});
+          window.scrollTo(0,0);
+          _sliding=false;
+          _cooldown=true;setTimeout(function(){_cooldown=false;},600);
+          setTimeout(initReveal,80);
+        },DUR);
+      }
+      // Trackpad / ratolí horitzontal
+      window.addEventListener('wheel',function(e){
+        var dx=e.deltaX||0,dy=e.deltaY||0;
+        if(Math.abs(dy)>Math.abs(dx)*1.5)return;
+        if(Math.abs(dx)<8)return;
+        e.preventDefault();
+        if(_sliding||_cooldown)return;
+        _accX+=dx;
+        clearTimeout(_wTimer);
+        _wTimer=setTimeout(function(){_accX=0;},300);
+        if(Math.abs(_accX)>=80){var d=_accX>0?1:-1;_accX=0;slideTo(curIdx()+d);}
+      },{passive:false});
+      // Touch swipe
+      var _tx=0,_ty=0,_tm=false;
+      document.addEventListener('touchstart',function(e){_tx=e.touches[0].clientX;_ty=e.touches[0].clientY;_tm=false;},{passive:true});
+      document.addEventListener('touchmove',function(){_tm=true;},{passive:true});
+      document.addEventListener('touchend',function(e){
+        if(!_tm)return;
+        var dx=e.changedTouches[0].clientX-_tx,dy=e.changedTouches[0].clientY-_ty;
+        if(Math.abs(dx)<Math.abs(dy)*1.5||Math.abs(dx)<60)return;
+        slideTo(curIdx()+(dx<0?1:-1));
+      },{passive:true});
+    })();
+
     // ── HERO PARTICLES ──────────────────────────────────────────────────
     function initHeroSlider(){
       var el=document.getElementById('heroSlider');
