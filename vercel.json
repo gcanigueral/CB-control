@@ -1,5 +1,10 @@
 {
   "rewrites": [
+    { "source": "/serveis", "destination": "/preview.html" },
+    { "source": "/sectors", "destination": "/preview.html" },
+    { "source": "/projectes", "destination": "/preview.html" },
+    { "source": "/empresa", "destination": "/preview.html" },
+    { "source": "/contacte", "destination": "/preview.html" },
     { "source": "/", "destination": "/preview.html" }
   ]
 }
