@@ -349,27 +349,37 @@ footer img.footer-logo{display:block}
             <span class="px-5 py-2 rounded-full bg-cb-blue/8 border border-cb-blue/25 text-cb-blue font-extrabold uppercase tracking-widest text-xs whitespace-nowrap" data-i18n="home.partnersLabel">Partners Tecnològics</span>
             <div class="flex-1 h-px bg-slate-200"></div>
           </div>
-          <!-- PARTNERS TECNOLÒGICS: 4 logos -->
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <!-- SIEMENS -->
-            <div class="flex items-center justify-center p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:border-cb-blue/30 hover:shadow-soft transition-all min-h-[100px]">
-              <svg viewBox="0 0 168 46" width="148" height="40" xmlns="http://www.w3.org/2000/svg">
-                <text x="2" y="36" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="28" font-weight="900" fill="#009999" letter-spacing="3">SIEMENS</text>
-              </svg>
+          <!-- PARTNERS TECNOLÒGICS: 2 conjunts de 4 logos en rotació cada 8s -->
+          <div id="partnersRotator" style="position:relative;min-height:116px;">
+            <!-- CONJUNT A: Siemens · Schneider · Omron · Weidmüller -->
+            <div id="partnersSetA" class="grid grid-cols-2 md:grid-cols-4 gap-4" style="transition:opacity .5s ease,transform .5s ease;">
+              <div class="flex items-center justify-center p-6 bg-slate-50 rounded-2xl border border-slate-100 min-h-[100px]">
+                <svg viewBox="0 0 168 46" width="148" height="40" xmlns="http://www.w3.org/2000/svg"><text x="2" y="36" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="28" font-weight="900" fill="#009999" letter-spacing="3">SIEMENS</text></svg>
+              </div>
+              <div class="flex items-center justify-center p-6 bg-slate-50 rounded-2xl border border-slate-100 min-h-[100px]">
+                <svg viewBox="0 0 200 56" width="160" height="46" xmlns="http://www.w3.org/2000/svg"><text x="4" y="24" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="19" font-weight="700" fill="#3DCD58">schneider</text><text x="4" y="48" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="19" font-weight="700" fill="#3DCD58">electric</text></svg>
+              </div>
+              <div class="flex items-center justify-center p-6 bg-slate-50 rounded-2xl border border-slate-100 min-h-[100px]">
+                <svg viewBox="0 0 148 46" width="126" height="40" xmlns="http://www.w3.org/2000/svg"><text x="2" y="37" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="32" font-weight="900" fill="#003087" letter-spacing="0.5">OMRON</text></svg>
+              </div>
+              <div class="flex items-center justify-center p-6 bg-slate-50 rounded-2xl border border-slate-100 min-h-[100px]">
+                <svg viewBox="0 0 218 42" width="190" height="36" xmlns="http://www.w3.org/2000/svg"><text x="2" y="32" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="20" font-weight="800" fill="#E40046" letter-spacing="1">WEIDMÜLLER</text></svg>
+              </div>
             </div>
-            <!-- SCHNEIDER ELECTRIC -->
-            <div class="flex items-center justify-center p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:border-cb-blue/30 hover:shadow-soft transition-all min-h-[100px]">
-              <img src="https://www.xpo.com/cdn/files/s25/Schneider-Electric-logo-jpg-.png" alt="Schneider Electric" class="max-h-12 max-w-full object-contain" style="filter:none" onerror="this.style.display='none'">
-            </div>
-            <!-- WEIDMÜLLER -->
-            <div class="flex items-center justify-center p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:border-cb-blue/30 hover:shadow-soft transition-all min-h-[100px]">
-              <img src="https://luguer.com/wp-content/uploads/2024/06/Weidm%EF%BF%BDeller-1300x409.png" alt="Weidmuller" class="max-h-12 max-w-full object-contain" onerror="this.style.display='none'">
-            </div>
-            <!-- OMRON -->
-            <div class="flex items-center justify-center p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:border-cb-blue/30 hover:shadow-soft transition-all min-h-[100px]">
-              <svg viewBox="0 0 148 46" width="126" height="40" xmlns="http://www.w3.org/2000/svg">
-                <text x="2" y="37" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="32" font-weight="900" fill="#003087" letter-spacing="0.5">OMRON</text>
-              </svg>
+            <!-- CONJUNT B: Festo · Metal Work · SMC · IFM -->
+            <div id="partnersSetB" class="grid grid-cols-2 md:grid-cols-4 gap-4" style="position:absolute;top:0;left:0;right:0;opacity:0;transform:scale(0.97);transition:opacity .5s ease,transform .5s ease;pointer-events:none;">
+              <div class="flex items-center justify-center p-6 bg-slate-50 rounded-2xl border border-slate-100 min-h-[100px]">
+                <svg viewBox="0 0 110 46" width="100" height="40" xmlns="http://www.w3.org/2000/svg"><text x="2" y="37" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="34" font-weight="900" fill="#003DA5" letter-spacing="1">festo</text></svg>
+              </div>
+              <div class="flex items-center justify-center p-6 bg-slate-50 rounded-2xl border border-slate-100 min-h-[100px]">
+                <svg viewBox="0 0 190 56" width="160" height="46" xmlns="http://www.w3.org/2000/svg"><text x="4" y="24" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="19" font-weight="700" fill="#C8102E">METAL</text><text x="4" y="48" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="19" font-weight="700" fill="#1A1A1A">WORK</text></svg>
+              </div>
+              <div class="flex items-center justify-center p-6 bg-slate-50 rounded-2xl border border-slate-100 min-h-[100px]">
+                <svg viewBox="0 0 92 46" width="82" height="40" xmlns="http://www.w3.org/2000/svg"><text x="2" y="37" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="34" font-weight="900" fill="#CC0000" letter-spacing="2">SMC</text></svg>
+              </div>
+              <div class="flex items-center justify-center p-6 bg-slate-50 rounded-2xl border border-slate-100 min-h-[100px]">
+                <svg viewBox="0 0 80 46" width="72" height="40" xmlns="http://www.w3.org/2000/svg"><text x="2" y="37" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="34" font-weight="900" fill="#F07D00" letter-spacing="2">ifm</text></svg>
+              </div>
             </div>
           </div>
         </div>
@@ -1089,7 +1099,8 @@ function navigateTo(page,sectorKey){document.querySelectorAll('.page').forEach(p
         counters.forEach(function(el){io.observe(el);});
       }else{counters.forEach(animate);}
     }
-    document.addEventListener('DOMContentLoaded',()=>{renderCards();setLang(currentLang);initRouter();document.addEventListener('click',function(e){var dd=document.getElementById('langDropdown');if(dd&&!dd.contains(e.target))toggleLangMenu(false);});window.addEventListener('popstate',function(e){if(e.state&&e.state.page)navigateTo(e.state.page,e.state.key||undefined);});initHeroSlider();initHeroParticles();initCounters();});
+    function initPartnersRotation(){var setA=document.getElementById('partnersSetA');var setB=document.getElementById('partnersSetB');if(!setA||!setB)return;var showingA=true;setInterval(function(){var hide=showingA?setA:setB;var show=showingA?setB:setA;hide.style.opacity='0';hide.style.transform='scale(0.97)';hide.style.pointerEvents='none';setTimeout(function(){show.style.opacity='1';show.style.transform='scale(1)';show.style.pointerEvents='';},520);showingA=!showingA;},8000);}
+    document.addEventListener('DOMContentLoaded',()=>{renderCards();setLang(currentLang);initRouter();document.addEventListener('click',function(e){var dd=document.getElementById('langDropdown');if(dd&&!dd.contains(e.target))toggleLangMenu(false);});window.addEventListener('popstate',function(e){if(e.state&&e.state.page)navigateTo(e.state.page,e.state.key||undefined);});initHeroSlider();initHeroParticles();initCounters();initPartnersRotation();});
   
   </script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"ElectricalContractor","name":"CB Control","description":"Automatització industrial, programació PLC/HMI/SCADA, quadres elèctrics industrials i instal·lacions industrials a Girona i Catalunya.","url":"https://www.cbcontrol.com","foundingYear":2004,"areaServed":{"@type":"AdministrativeArea","name":"Catalunya"},"address":{"@type":"PostalAddress","streetAddress":"C/ República, 10","postalCode":"17240","addressLocality":"Llagostera","addressRegion":"Girona","addressCountry":"ES"},"geo":{"@type":"GeoCoordinates","latitude":41.8268,"longitude":2.8938},"email":"info@cbcontrol.com","telephone":"+34686566204","hasOfferCatalog":{"@type":"OfferCatalog","name":"Serveis d'automatització industrial","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Programació PLC, HMI i SCADA"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Quadres elèctrics industrials"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Automatització industrial"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Captació de dades industrials"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Manteniment industrial"}}]},"sameAs":["https://www.linkedin.com/company/cb-control"]}</script>
