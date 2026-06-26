@@ -352,7 +352,7 @@ footer img.footer-logo{display:block}
           <!-- PARTNERS TECNOLÒGICS: 2 conjunts de 4 logos en rotació cada 8s -->
           <div id="partnersRotator" style="position:relative;min-height:146px;">
             <!-- CONJUNT A: Siemens · Schneider · Omron · Weidmüller -->
-            <div id="partnersSetA" class="grid grid-cols-2 md:grid-cols-4 gap-4" style="transition:opacity .5s ease,transform .5s ease;">
+            <div id="partnersSetA" class="grid grid-cols-2 md:grid-cols-4 gap-4">
               <div class="flex items-center justify-center p-4 bg-slate-50 rounded-2xl border border-slate-100 min-h-[130px]">
                 <svg viewBox="0 0 168 46" style="width:auto;height:72px;max-width:90%" xmlns="http://www.w3.org/2000/svg"><text x="2" y="36" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="28" font-weight="900" fill="#009999" letter-spacing="3">SIEMENS</text></svg>
               </div>
@@ -367,7 +367,7 @@ footer img.footer-logo{display:block}
               </div>
             </div>
             <!-- CONJUNT B: Festo · Metal Work · SMC · IFM -->
-            <div id="partnersSetB" class="grid grid-cols-2 md:grid-cols-4 gap-4" style="position:absolute;top:0;left:0;right:0;opacity:0;transform:scale(0.97);transition:opacity .5s ease,transform .5s ease;pointer-events:none;">
+            <div id="partnersSetB" class="grid grid-cols-2 md:grid-cols-4 gap-4" style="position:absolute;top:0;left:0;right:0;opacity:0;pointer-events:none;">
               <div class="flex items-center justify-center p-4 bg-slate-50 rounded-2xl border border-slate-100 min-h-[130px]">
                 <img src="https://www.roydisa.es/wp-content/uploads/2024/10/Festo-Logo.wine_.png" alt="Festo" style="max-height:80px;width:auto;max-width:90%" class="object-contain" onerror="this.style.display='none'">
               </div>
@@ -1099,7 +1099,7 @@ function navigateTo(page,sectorKey){document.querySelectorAll('.page').forEach(p
         counters.forEach(function(el){io.observe(el);});
       }else{counters.forEach(animate);}
     }
-    function initPartnersRotation(){var setA=document.getElementById('partnersSetA');var setB=document.getElementById('partnersSetB');if(!setA||!setB)return;var showingA=true;setInterval(function(){var hide=showingA?setA:setB;var show=showingA?setB:setA;hide.style.opacity='0';hide.style.transform='scale(0.97)';hide.style.pointerEvents='none';setTimeout(function(){show.style.opacity='1';show.style.transform='scale(1)';show.style.pointerEvents='';},520);showingA=!showingA;},8000);}
+    function initPartnersRotation(){var setA=document.getElementById('partnersSetA');var setB=document.getElementById('partnersSetB');if(!setA||!setB)return;setA.style.transition='none';setA.style.opacity='1';setB.style.transition='none';setB.style.opacity='0';setB.style.pointerEvents='none';var showing=setA;var waiting=setB;function cycle(){showing.style.transition='opacity 1s ease-out';showing.style.opacity='0.45';setTimeout(function(){var prev=showing;showing=waiting;waiting=prev;prev.style.transition='none';prev.style.opacity='0';prev.style.pointerEvents='none';showing.style.transition='none';showing.style.opacity='0';showing.style.pointerEvents='';void showing.offsetWidth;showing.style.transition='opacity 0.6s ease-in';showing.style.opacity='1';setTimeout(cycle,7000);},1000);}setTimeout(cycle,7000);}
     document.addEventListener('DOMContentLoaded',()=>{renderCards();setLang(currentLang);initRouter();document.addEventListener('click',function(e){var dd=document.getElementById('langDropdown');if(dd&&!dd.contains(e.target))toggleLangMenu(false);});window.addEventListener('popstate',function(e){if(e.state&&e.state.page)navigateTo(e.state.page,e.state.key||undefined);});initHeroSlider();initHeroParticles();initCounters();initPartnersRotation();});
   
   </script>
