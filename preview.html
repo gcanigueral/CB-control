@@ -117,13 +117,8 @@ footer img.footer-logo{display:block}
     .btn-3d:active{transform:translateY(-1px);box-shadow:0 4px 10px rgba(0,0,0,.14);transition-duration:.08s}  </style>
 <style>
 /* STATS BAR + COUNTERS + CTA PREMIUM */
-.stats-bar{background:linear-gradient(160deg,#081827 0%,#0d2035 60%,#081827 100%);border-top:1px solid rgba(74,171,224,.07);border-bottom:1px solid rgba(74,171,224,.07)}
-.stat-premium-block{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
-.stat-premium-block:nth-child(2){transition-delay:110ms}
-.stat-premium-block:nth-child(3){transition-delay:220ms}
-.stat-premium-block:nth-child(4){transition-delay:330ms}
-.stat-premium-block.stat-visible{opacity:1;transform:translateY(0)}
-.stat-icon-wrap{width:56px;height:56px;display:flex;align-items:center;justify-content:center;border-radius:14px;background:rgba(74,171,224,.07);border:1px solid rgba(74,171,224,.14);margin:0 auto 1.5rem;flex-shrink:0}
+.stats-bar{background:linear-gradient(135deg,#081827 0%,#102033 100%);border-top:1px solid rgba(74,171,224,.12);border-bottom:1px solid rgba(74,171,224,.12)}
+.stat-counter{font-variant-numeric:tabular-nums}
 @keyframes statPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
 .stat-done{animation:statPulse .45s cubic-bezier(.22,1,.36,1)}
 .home-cta-strip{background:linear-gradient(135deg,#062239 0%,#081827 60%,#051a2e 100%);position:relative;overflow:hidden}
@@ -211,46 +206,25 @@ footer img.footer-logo{display:block}
         </div>
             <button class="hero-scroll" onclick="window.scrollBy({top:window.innerHeight*.85,behavior:'smooth'})"><svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg></button>
       </header>
-      <section class="stats-bar py-20" id="statsBar">
-        <div class="max-w-5xl mx-auto px-6">
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-y-14 gap-x-6">
-
-            <!-- 30+ anys d'experiència -->
-            <div class="stat-premium-block flex flex-col items-center text-center px-2">
-              <div class="stat-icon-wrap">
-                <svg width="24" height="24" fill="none" stroke="#4AABE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 6 12 12 15.5 14.5"/></svg>
-              </div>
-              <div class="text-[40px] font-extrabold text-white leading-none tracking-tight">30+</div>
-              <div class="text-white/40 text-[10px] font-semibold uppercase tracking-[.2em] mt-3 leading-relaxed" data-i18n="stats.years">Anys d'experiència</div>
+      <section class="stats-bar py-14 reveal" id="statsBar">
+        <div class="max-w-7xl mx-auto px-6">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-0 md:divide-x md:divide-white/10">
+            <div class="text-center px-8">
+              <div class="stat-counter text-5xl md:text-6xl font-extrabold text-cb-blue leading-none" data-count="30" data-suffix="+">30+</div>
+              <div class="text-white/60 text-xs font-bold mt-3 uppercase tracking-widest" data-i18n="stats.years">Anys d'experiència</div>
             </div>
-
-            <!-- 4 enginyers especialitzats -->
-            <div class="stat-premium-block flex flex-col items-center text-center px-2">
-              <div class="stat-icon-wrap">
-                <svg width="24" height="24" fill="none" stroke="#4AABE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-              </div>
-              <div class="text-[40px] font-extrabold text-white leading-none tracking-tight">4</div>
-              <div class="text-white/40 text-[10px] font-semibold uppercase tracking-[.2em] mt-3 leading-relaxed" data-i18n="stats.engineers">Enginyers especialitzats</div>
+            <div class="text-center px-8">
+              <div class="stat-counter text-5xl md:text-6xl font-extrabold text-cb-blue leading-none" data-count="4">4</div>
+              <div class="text-white/60 text-xs font-bold mt-3 uppercase tracking-widest" data-i18n="stats.engineers">Enginyers especialitzats</div>
             </div>
-
-            <!-- 100+ projectes executats -->
-            <div class="stat-premium-block flex flex-col items-center text-center px-2">
-              <div class="stat-icon-wrap">
-                <svg width="24" height="24" fill="none" stroke="#4AABE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-              </div>
-              <div class="text-[40px] font-extrabold text-white leading-none tracking-tight">100+</div>
-              <div class="text-white/40 text-[10px] font-semibold uppercase tracking-[.2em] mt-3 leading-relaxed" data-i18n="stats.projects">Projectes executats</div>
+            <div class="text-center px-8">
+              <div class="stat-counter text-5xl md:text-6xl font-extrabold text-cb-blue leading-none" data-count="100" data-suffix="+">100+</div>
+              <div class="text-white/60 text-xs font-bold mt-3 uppercase tracking-widest" data-i18n="stats.projects">Projectes executats</div>
             </div>
-
-            <!-- 6 sectors industrials -->
-            <div class="stat-premium-block flex flex-col items-center text-center px-2">
-              <div class="stat-icon-wrap">
-                <svg width="24" height="24" fill="none" stroke="#4AABE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
-              </div>
-              <div class="text-[40px] font-extrabold text-white leading-none tracking-tight">6</div>
-              <div class="text-white/40 text-[10px] font-semibold uppercase tracking-[.2em] mt-3 leading-relaxed" data-i18n="stats.sectors">Sectors industrials</div>
+            <div class="text-center px-8">
+              <div class="stat-counter text-5xl md:text-6xl font-extrabold text-cb-blue leading-none" data-count="6">6</div>
+              <div class="text-white/60 text-xs font-bold mt-3 uppercase tracking-widest" data-i18n="stats.sectors">Sectors industrials</div>
             </div>
-
           </div>
         </div>
       </section>
@@ -1157,8 +1131,7 @@ function navigateTo(page,sectorKey){document.querySelectorAll('.page').forEach(p
     }
     function initPartnersRotation(){var setA=document.getElementById('partnersSetA');var setB=document.getElementById('partnersSetB');if(!setA||!setB)return;setA.style.transition='none';setA.style.opacity='1';setB.style.transition='none';setB.style.opacity='0';setB.style.pointerEvents='none';var showing=setA;var waiting=setB;function startCycle(){showing.style.transition='opacity 1s ease-in-out';showing.style.opacity='0.5';setTimeout(function(){showing.style.transition='opacity 1.2s ease-in-out';showing.style.opacity='0';waiting.style.transition='opacity 1.2s ease-in-out';waiting.style.opacity='1';waiting.style.pointerEvents='';setTimeout(function(){showing.style.pointerEvents='none';var prev=showing;showing=waiting;waiting=prev;setTimeout(startCycle,7000);},1200);},1000);}setTimeout(startCycle,7000);}
     function initClientsRotation(){var setA=document.getElementById('clientsSetA');var setB=document.getElementById('clientsSetB');if(!setA||!setB)return;setA.style.transition='none';setA.style.opacity='1';setB.style.transition='none';setB.style.opacity='0';setB.style.pointerEvents='none';var showing=setA;var waiting=setB;function startCycle(){showing.style.transition='opacity 1s ease-in-out';showing.style.opacity='0.5';setTimeout(function(){showing.style.transition='opacity 1.2s ease-in-out';showing.style.opacity='0';waiting.style.transition='opacity 1.2s ease-in-out';waiting.style.opacity='1';waiting.style.pointerEvents='';setTimeout(function(){showing.style.pointerEvents='none';var prev=showing;showing=waiting;waiting=prev;setTimeout(startCycle,7000);},1200);},1000);}setTimeout(startCycle,7000);}
-    function initStatsReveal(){var blocks=document.querySelectorAll('.stat-premium-block');if(!blocks.length)return;if(!('IntersectionObserver' in window)){blocks.forEach(function(el){el.classList.add('stat-visible');});return;}var obs=new IntersectionObserver(function(entries){if(entries[0].isIntersecting){blocks.forEach(function(el){el.classList.add('stat-visible');});obs.disconnect();}},{threshold:.15});var sb=document.getElementById('statsBar');if(sb)obs.observe(sb);}
-    document.addEventListener('DOMContentLoaded',()=>{renderCards();setLang(currentLang);initRouter();document.addEventListener('click',function(e){var dd=document.getElementById('langDropdown');if(dd&&!dd.contains(e.target))toggleLangMenu(false);});window.addEventListener('popstate',function(e){if(e.state&&e.state.page)navigateTo(e.state.page,e.state.key||undefined);});initHeroSlider();initHeroParticles();initCounters();initPartnersRotation();initClientsRotation();initStatsReveal();});
+    document.addEventListener('DOMContentLoaded',()=>{renderCards();setLang(currentLang);initRouter();document.addEventListener('click',function(e){var dd=document.getElementById('langDropdown');if(dd&&!dd.contains(e.target))toggleLangMenu(false);});window.addEventListener('popstate',function(e){if(e.state&&e.state.page)navigateTo(e.state.page,e.state.key||undefined);});initHeroSlider();initHeroParticles();initCounters();initPartnersRotation();initClientsRotation();});
   
   </script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"ElectricalContractor","name":"CB Control","description":"Automatització industrial, programació PLC/HMI/SCADA, quadres elèctrics industrials i instal·lacions industrials a Girona i Catalunya.","url":"https://www.cbcontrol.com","foundingYear":2004,"areaServed":{"@type":"AdministrativeArea","name":"Catalunya"},"address":{"@type":"PostalAddress","streetAddress":"C/ República, 10","postalCode":"17240","addressLocality":"Llagostera","addressRegion":"Girona","addressCountry":"ES"},"geo":{"@type":"GeoCoordinates","latitude":41.8268,"longitude":2.8938},"email":"info@cbcontrol.com","telephone":"+34686566204","hasOfferCatalog":{"@type":"OfferCatalog","name":"Serveis d'automatització industrial","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Programació PLC, HMI i SCADA"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Quadres elèctrics industrials"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Automatització industrial"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Captació de dades industrials"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Manteniment industrial"}}]},"sameAs":["https://www.linkedin.com/company/cb-control"]}</script>
